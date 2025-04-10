@@ -1,9 +1,28 @@
+// eslint.config.js
+import js from "@eslint/js";
 import globals from "globals";
-import pluginJs from "@eslint/js";
-import eslintConfigPrettier from "eslint-config-prettier";
+import { createRequire } from "node:module";
+
+const require = createRequire(import.meta.url);
+const eslintConfigPrettier = require("eslint-config-prettier");
 
 export default [
-  { languageOptions: { globals: globals.nodeBuiltin } },
-  pluginJs.configs.recommended,
+  {
+    files: ["**/*.js"],
+    languageOptions: {
+      ecmaVersion: "latest",
+      sourceType: "module",
+      globals: {
+        ...globals.node,
+        ...globals.es2021,
+      },
+    },
+    plugins: {
+      js,
+    },
+    rules: {
+      ...js.configs.recommended.rules,
+    },
+  },
   eslintConfigPrettier,
 ];
