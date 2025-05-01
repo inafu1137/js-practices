@@ -30,7 +30,7 @@ console.log("日 月 火 水 木 金 土");
 // カレンダーの出力
 let line = " ".repeat(firstDay * 3);
 for (let date = 1; date <= daysInMonth; date++) {
-  line += date.toString().padStart(2, " ") + " ";
+  line += `${String(date).padStart(2, " ")} `;
   // 土曜日の判定
   if ((firstDay + date) % 7 === 0) {
     console.log(line.trimEnd());
