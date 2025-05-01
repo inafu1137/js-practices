@@ -4,9 +4,9 @@ import minimist from "minimist";
 import dayjs from "dayjs";
 
 // コマンドライン引数の取得や年/月の決定
-const args = minimist(process.argv.slice(2));
-const year = parseInt(args.y || args.year) || dayjs().year();
-const month = parseInt(args.m || args.month) || dayjs().month() + 1;
+const options = minimist(process.argv.slice(2));
+const year = parseInt(options.y || options.year) || dayjs().year();
+const month = parseInt(options.m || options.month) || dayjs().month() + 1;
 
 // 入力チェック
 if (year < 1970 || year > 2100 || month < 1 || month > 12) {
