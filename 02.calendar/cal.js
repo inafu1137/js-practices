@@ -24,7 +24,7 @@ const daysInMonth = end.date();
 
 // 見出しの表示
 const header = `${month}月 ${year}`;
-console.log(header.padStart(10 + Math.floor(header.length / 2), " "));
+console.log(header.padStart(14));
 console.log("日 月 火 水 木 金 土");
 
 // カレンダーの出力
