@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// ライブラリ読み込み
+
 import minimist from "minimist";
 import dayjs from "dayjs";
 
