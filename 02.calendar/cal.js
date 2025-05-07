@@ -15,7 +15,10 @@ if (year < 1970 || year > 2100 || month < 1 || month > 12) {
 }
 
 // 月初オブジェクト
-const startDate = dayjs(`${year}-${String(month).padStart(2, "0")}-01`);
+const startDate = dayjs()
+  .set("year", year)
+  .set("month", month - 1)
+  .set("date", 1);
 
 // 見出しの表示
 const header = `${month}月 ${year}`;
