@@ -28,8 +28,9 @@ console.log("日 月 火 水 木 金 土");
 // カレンダーの出力
 let line = " ".repeat(startDate.day() * 3);
 for (let date = 1; date <= startDate.endOf("month").date(); date++) {
+  const current = startDate.set("date", date);
   line += `${String(date).padStart(2, " ")} `;
-  if ((startDate.day() + date) % 7 === 0) {
+  if (current.day() === 6) {
     console.log(line);
     line = "";
   }
