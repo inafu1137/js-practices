@@ -29,12 +29,12 @@ console.log("日 月 火 水 木 金 土");
 let line = " ".repeat(startDate.day() * 3);
 for (let date = 1; date <= startDate.endOf("month").date(); date++) {
   const current = startDate.set("date", date);
-  line += `${String(date).padStart(2, " ")} `;
-  if (current.day() === 6) {
+  line += String(date).padStart(2, " ");
+
+  if (current.day() === 6 || date === startDate.endOf("month").date()) {
     console.log(line);
     line = "";
+  } else {
+    line += " ";
   }
-}
-if (line !== "") {
-  console.log(line);
 }
