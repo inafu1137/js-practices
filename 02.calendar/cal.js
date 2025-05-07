@@ -19,7 +19,7 @@ const startDate = dayjs(`${year}-${String(month).padStart(2, "0")}-01`);
 
 // 見出しの表示
 const header = `${month}月 ${year}`;
-console.log(header.padStart(14));
+console.log(header.padStart(13));
 console.log("日 月 火 水 木 金 土");
 
 // カレンダーの出力
