@@ -3,7 +3,6 @@
 import minimist from "minimist";
 import dayjs from "dayjs";
 
-// コマンドライン引数の取得や年/月の決定
 const options = minimist(process.argv.slice(2));
 const now = dayjs();
 const year = Number.isInteger(options.y) ? options.y : now.year();
