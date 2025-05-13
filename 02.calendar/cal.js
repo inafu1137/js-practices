@@ -20,14 +20,17 @@ console.log(header.padStart(13));
 console.log("日 月 火 水 木 金 土");
 
 let line = " ".repeat(startDate.day() * 3);
-for (let date = 1; date <= startDate.endOf("month").date(); date++) {
-  const current = startDate.set("date", date);
-  line += String(date).padStart(2, " ");
+let current = startDate;
 
-  if (current.day() === 6 || date === startDate.endOf("month").date()) {
+while (!current.isAfter(startDate.endOf("month"))) {
+  line += String(current.date()).padStart(2, " ");
+
+  if (current.day() === 6 || current.isSame(startDate.endOf("month"), "day")) {
     console.log(line);
     line = "";
   } else {
     line += " ";
   }
+
+  current = current.add(1, "day");
 }
