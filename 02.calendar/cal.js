@@ -15,8 +15,7 @@ if (year < 1970 || year > 2100 || month < 1 || month > 12) {
 
 const startDate = dayjs(`${year}-${month}-01`);
 
-const header = `${month}月 ${year}`;
-console.log(header.padStart(13));
+console.log(`      ${month}月 ${year}`);
 console.log("日 月 火 水 木 金 土");
 
 let line = " ".repeat(startDate.day() * 3);
