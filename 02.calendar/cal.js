@@ -13,10 +13,7 @@ if (year < 1970 || year > 2100 || month < 1 || month > 12) {
   process.exit(1);
 }
 
-const startDate = dayjs()
-  .set("year", year)
-  .set("month", month - 1)
-  .set("date", 1);
+const startDate = dayjs(`${year}-${month}-01`);
 
 const header = `${month}月 ${year}`;
 console.log(header.padStart(13));
