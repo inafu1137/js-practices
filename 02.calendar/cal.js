@@ -13,7 +13,10 @@ if (year < 1970 || year > 2100 || month < 1 || month > 12) {
   process.exit(1);
 }
 
-const startDate = dayjs(`${year}-${month}-01`);
+const startDate = dayjs()
+  .year(year)
+  .month(month - 1)
+  .date(1);
 
 console.log(`      ${month}月 ${year}`);
 console.log("日 月 火 水 木 金 土");
@@ -27,7 +30,10 @@ for (
 ) {
   line += String(currentDate.date()).padStart(2, " ");
 
-  if (currentDate.day() === 6 || currentDate.isSame(startDate.endOf("month"), "day")) {
+  if (
+    currentDate.day() === 6 ||
+    currentDate.isSame(startDate.endOf("month"), "day")
+  ) {
     console.log(line);
     line = "";
   } else {
