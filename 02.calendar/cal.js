@@ -16,10 +16,7 @@ if (year < 1970 || year > 2100 || month < 1 || month > 12) {
   process.exit(1);
 }
 
-const startDate = dayjs()
-  .year(year)
-  .month(month - 1)
-  .date(1);
+const startDate = dayjs(new Date(year, month - 1, 1));
 
 const endDate = startDate.endOf("month");
 
