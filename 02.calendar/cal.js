@@ -2,6 +2,9 @@
 
 import minimist from "minimist";
 import dayjs from "dayjs";
+import isSameOrBefore from "dayjs/plugin/isSameOrBefore.js";
+
+dayjs.extend(isSameOrBefore);
 
 const options = minimist(process.argv.slice(2));
 const now = dayjs();
@@ -27,7 +30,7 @@ let line = " ".repeat(startDate.day() * 3);
 
 for (
   let currentDate = startDate;
-  !currentDate.isAfter(endDate);
+  currentDate.isSameOrBefore(endDate);
   currentDate = currentDate.add(1, "day")
 ) {
   line += String(currentDate.date()).padStart(2, " ");
