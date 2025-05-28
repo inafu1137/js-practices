@@ -18,6 +18,8 @@ const startDate = dayjs()
   .month(month - 1)
   .date(1);
 
+const endDate = startDate.endOf("month");
+
 console.log(`      ${month}月 ${year}`);
 console.log("日 月 火 水 木 金 土");
 
@@ -25,15 +27,12 @@ let line = " ".repeat(startDate.day() * 3);
 
 for (
   let currentDate = startDate;
-  !currentDate.isAfter(startDate.endOf("month"));
+  !currentDate.isAfter(endDate);
   currentDate = currentDate.add(1, "day")
 ) {
   line += String(currentDate.date()).padStart(2, " ");
 
-  if (
-    currentDate.day() === 6 ||
-    currentDate.isSame(startDate.endOf("month"), "day")
-  ) {
+  if (currentDate.day() === 6 || currentDate.isSame(endDate, "day")) {
     console.log(line);
     line = "";
   } else {
